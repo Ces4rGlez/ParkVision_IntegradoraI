@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--Interfaz del sitio principal donde podrá acceder el visitante y el administrador. Contendrpa información básica
+del sitio Doiseño instuitivo y fácil de entender-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitio Web Principal</title>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="fonts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous>
+  
+    <!--
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+  
+    <!--
+      css link
+    -->
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+  
+    <!--
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /*-----------------------------------*\ 
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2022 Cesar Avalos
+ */
+
+
+
+
+
+/*-----------------------------------*\ 
+  #Propiedades
+\*-----------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Gabriola', sans-serif;
+}
+
+body{
+    margin-left: 80px;
+    margin-top: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    
+}
+
+main{
+    padding: 20px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+.icon__menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(10px);
+}
+
+.icon__menu i{
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.menu__side{
+    width: 80px;
+    height: 100%;
+    background: #1783db;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid #1783db;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name__page i{
+    width: 20px;
+    margin-right: 20px;
+}
+
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options__menu a{
+    color: #ffffffb2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover{
+    color: white;
+}
+
+.options__menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
+
+.light-theme {
+
+/**
+ * light theme colors 
+ */
+
+--background-primary: hsl(0, 0%, 100%);
+--background-secondary: hsl(0, 0%, 97%);
+
+--action-primary: hsl(214, 32%, 91%);
+--action-secondary: hsl(210, 38%, 95%);
+
+--foreground-primary: hsl(218, 23%, 23%);
+--foreground-secondary: hsl(216, 15%, 52%);
+--foreground-tertiary: hsl(214, 20%, 69%);
+
+--accent: hsl(229, 76%, 66%);
+
+}
+
+.dark-theme {
+
+/**
+ * dark theme colors 
+ */
+
+--background-primary: hsl(218, 23%, 23%);
+--background-secondary: hsl(220, 26%, 14%);
+
+--action-primary: hsl(216, 15%, 52%);
+--action-secondary: hsl(218, 23%, 23%);
+
+--foreground-primary: hsl(210, 38%, 95%);
+--foreground-secondary: hsl(211, 25%, 84%);
+--foreground-tertiary: hsl(214, 20%, 69%);
+
+--accent: hsl(229, 76%, 66%);
+
+}
+
+:root {
+
+/**
+ * color
+ */
+
+--white: hsl(0, 0%, 100%);
+
+/**
+ * typography 
+ */
+
+--fs-base: 0.85rem;
+--fs-1: 1.875rem;
+--fs-2: 1.5rem;
+--fs-3: 1.25rem;
+--fs-4: 0.875rem;
+--fs-5: 0.75rem;
+
+/**
+ * spacing 
+ */
+
+--py: 5rem;
+
+}
+
+
+
+
+
+/*-----------------------------------*\ 
+#RESET
+\*-----------------------------------*/
+
+*, *::before, *::after {
+margin:  0;
+padding: 0;
+box-sizing: border-box;
+}
+
+a { text-decoration: none; }
+
+li { list-style: none; }
+
+img, button { display: block; }
+
+a, span { display: inline-block; }
+
+button {
+font: inherit;
+border: none;
+background: none;
+cursor: pointer;
+}
+
+html {
+font-family: "Inter", sans-serif;
+font-size: var(--fs-base); /* base font-size (0.85rem = 13.6px) */
+line-height: 1.8;
+}
+
+:focus { outline-offset: 4px; }
+
+
+/**
+* scrollbar style
+*/
+
+::-webkit-scrollbar { width: 16px; }
+
+
+::-webkit-scrollbar-thumb {
+background: var(--accent);
+border-radius: 20px;
+border: 4px solid;
+}
+
+.light-theme::-webkit-scrollbar-thumb { border-color: hsl(0, 0%, 90%); }
+
+.dark-theme::-webkit-scrollbar-thumb { border-color: hsl(219, 27%, 20%); }
+
+.light-theme::-webkit-scrollbar-track { background: hsl(0, 0%, 90%); }
+
+.dark-theme::-webkit-scrollbar-track { background: hsl(219, 27%, 20%); }
+
+
+
+
+
+/*-----------------------------------*\ 
+#BASE STYLE
+\*-----------------------------------*/
+
+.h1,
+.h2,
+.h3,
+.h4 {
+display: block;
+color: var(--foreground-primary);
+}
+
+.h1 {
+font-size: var(--fs-1);
+font-weight: 900;
+}
+
+.h2 {
+font-size: var(--fs-2);
+font-weight: 700;
+}
+
+.h3 {
+font-size: var(--fs-3);
+font-weight: 700;
+}
+
+.h4 {
+
+font-size: var(--fs-4);
+font-weight: 700;
+}
+
+.text-sm { font-size: var(--fs-4); }
+
+.text-tiny { font-size: var(--fs-5); }
+
+
+
+
+
+/*-----------------------------------*\ 
+#REUSED STYLE
+\*-----------------------------------*/
+
+.container {
+margin-inline: auto;
+margin: auto; /* fallback for margin-inline */
+padding: 0 15px;
+}
+
+.btn {
+min-width: 10rem;
+border-radius: 100px;
+}
+
+.btn-primary {
+background: var(--accent);
+color: var(--white);
+padding: 0.6875rem 1.1875rem;
+}
+
+.btn-primary:hover {
+background: var(--foreground-secondary);
+color: var(--action-primary);
+}
+
+.btn-secondary {
+background: var(--action-secondary);
+color: var(--foreground-secondary);
+padding: 0.5rem 1rem;
+border: 3px solid var(--foreground-tertiary);
+}
+
+.btn-secondary:hover { border-color: var(--accent); }
+
+
+
+
+
+/*-----------------------------------*\ 
+#Extra style for dark theme
+\*-----------------------------------*/
+
+.dark-theme .btn-primary:hover { color: var(--background-primary); }
+
+.dark-theme .blog-topic {
+background: var(--action-primary);
+color: var(--foreground-secondary);
+}
+
+.dark-theme .blog-topic:hover {
+background: var(--foreground-primary);
+color: var(--action-primary);
+}
+
+.dark-theme .load-more:hover { color: var(--white); }
+
+.dark-theme .aside .h2 { color: var(--foreground-primary); }
+
+
+
+
+/*-----------------------------------*\ 
+#HEADER
+\*-----------------------------------*/
+
+header { background: var(--background-primary); }
+
+header .flex-wrapper { display: none; }
+
+.navbar {
+display:         flex;
+justify-content: space-between;
+align-items:     center;
+gap: 15px;
+padding: 15px 0;
+}
+
+.logo-light,
+.logo-dark { display: none; }
+
+.light-theme .logo-light,
+.dark-theme .logo-dark { display: block; }
+
+header .btn-group {
+display:     flex;
+align-items: center;
+gap: 15px;
+}
+
+.theme-btn-mobile,
+.nav-menu-btn,
+.nav-close-btn {
+background: var(--action-secondary);
+color: var(--foreground-tertiary);
+width:  40px;
+height: 40px;
+display:         flex;
+justify-content: center;
+align-items:     center;
+border-radius: 50%;
+font-size: 25px;
+}
+
+:is(.theme-btn-mobile,
+.nav-menu-btn,
+.nav-close-btn):hover {
+background: var(--accent);
+color: var(--white);
+}
+
+.theme-btn-mobile ion-icon { display: none; }
+
+.theme-btn-mobile.light .sun,
+.theme-btn-mobile.dark .moon { display: block; }
+
+.mobile-nav {
+position: fixed;
+inset: 0;
+background: var(--background-primary);
+padding: 70px 20px;
+overflow: auto;
+overscroll-behavior: contain;
+transform: translateX(100%);
+visibility: hidden;
+transition: 0.5s cubic-bezier(1, 0, 0.30, 0.70);
+z-index: 10;
+}
+
+.mobile-nav.active {
+transform: translateX(0);
+visibility: visible;
+}
+
+.nav-close-btn {
+position: absolute;
+top:   20px;
+right: 20px;
+}
+
+.mobile-nav .wrapper {
+padding-bottom: 1.25rem;
+margin-bottom:  1.25rem;
+border-bottom: 1px solid var(--action-primary);
+}
+
+.mobile-nav .nav-title { margin-bottom: 1rem; }
+
+.mobile-nav .nav-item { margin-bottom: 0.5rem; }
+
+.mobile-nav .nav-link {
+font-size: var(--fs-3);
+color: var(--foreground-secondary);
+}
+
+.mobile-nav .nav-link:hover { color: var(--accent); }
+
+
+.search {
+  --background: #ffffff;
+  --text-color: #414856;
+  --primary-color: #4F29F0;
+  --border-radius: 10px;
+  --width: 190px;
+  --height: 55px;
+  background: var(--background);
+  width: auto;
+  height: var(--height);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search input[type=text] {
+  position: relative;
+  width: var(--height);
+  height: var(--height);
+  font: 400 16px "Varela Round", sans-serif;
+  color: var(--text-color);
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0 0 0 40px;
+  transition: width 0.6s ease;
+  z-index: 10;
+  opacity: 0;
+  cursor: pointer;
+}
+.search input[type=text]:focus {
+  z-index: 0;
+  opacity: 1;
+  width: var(--width);
+}
+.search input[type=text]:focus ~ .symbol::before {
+  width: 0%;
+}
+.search input[type=text]:focus ~ .symbol:after {
+  -webkit-clip-path: inset(0% 0% 0% 100%);
+          clip-path: inset(0% 0% 0% 100%);
+  transition: -webkit-clip-path 0.04s linear 0.105s;
+  transition: clip-path 0.04s linear 0.105s;
+  transition: clip-path 0.04s linear 0.105s, -webkit-clip-path 0.04s linear 0.105s;
+}
+.search input[type=text]:focus ~ .symbol .cloud {
+  top: -30px;
+  left: -30px;
+  transform: translate(0, 0);
+  transition: all 0.6s ease;
+}
+.search input[type=text]:focus ~ .symbol .lens {
+  top: 20px;
+  left: 15px;
+  transform: translate(0, 0);
+  fill: var(--primary-color);
+  transition: top 0.5s ease 0.1s, left 0.5s ease 0.1s, fill 0.3s ease;
+}
+.search .symbol {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search .symbol:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  z-index: -1;
+  transition: width 0.6s ease;
+}
+.search .symbol:after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  z-index: 1;
+  -webkit-clip-path: inset(0% 0% 0% 0%);
+          clip-path: inset(0% 0% 0% 0%);
+  transition: -webkit-clip-path 0.04s linear 0.225s;
+  transition: clip-path 0.04s linear 0.225s;
+  transition: clip-path 0.04s linear 0.225s, -webkit-clip-path 0.04s linear 0.225s;
+}
+.search .symbol .cloud,
+.search .symbol .lens {
+  position: absolute;
+  fill: #fff;
+  stroke: none;
+  top: 50%;
+  left: 50%;
+}
+.search .symbol .cloud {
+  width: 35px;
+  height: 32px;
+  transform: translate(-50%, -60%);
+  transition: all 0.6s ease;
+}
+.search .symbol .lens {
+  fill: #fff;
+  width: 16px;
+  height: 16px;
+  z-index: 2;
+  top: 24px;
+  left: 24px;
+  transition: top 0.3s ease, left 0.3s ease, fill 0.2s ease 0.2s;
+}
+
+
+/*-----------------------------------*\ 
+#HERO SECTION
+\*-----------------------------------*/
+
+.hero {
+background: var(--background-primary);
+padding-top:    2rem;
+padding-bottom: var(--py);
+text-align: center;
+}
+
+.hero .h1 {
+margin-bottom: 1rem;
+line-height: 1.6;
+}
+
+.hero b {
+color: var(--accent);
+font-weight: inherit;
+}
+
+.hero .h3 {
+color: var(--foreground-secondary);
+margin-bottom: 2rem;
+}
+
+.hero .btn-group {
+display:         flex;
+justify-content: center;
+flex-wrap:       wrap;
+gap: 15px;
+text-align: center;
+}
+
+.hero .right { display: none; }
+
+
+
+
+
+/*-----------------------------------*\ 
+#BLOG SECTION
+\*-----------------------------------*/
+
+.main {
+background: var(--background-secondary);
+padding: var(--py) 0;
+}
+
+.blog .h2 {
+line-height: 1.3;
+margin-bottom: 3rem;
+text-align: center;
+}
+
+.blog-card-group { margin-bottom: 3rem; }
+
+.blog-card {
+background: var(--background-primary);
+padding: 10px;
+margin-bottom: 1rem;
+border-radius: 10px;
+box-shadow: 0 10px 10px hsla(0, 0%, 0%, 0.05);
+transition: 0.25s ease;
+}
+
+.blog-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 10px hsla(0, 0%, 0%, 0.1);
+}
+
+.blog-card-banner { display: none; }
+
+.blog-content-wrapper { padding: 10px 5px; }
+
+.blog-topic {
+background: var(--action-secondary);
+color: var(--foreground-secondary);
+font-weight: 600;
+padding: 0.25rem 1rem;
+border-radius: 5px;
+margin-bottom: 1rem;
+}
+
+.blog-topic:hover {
+background: var(--foreground-secondary);
+color: var(--action-secondary);
+}
+
+.blog-card .h3 {
+line-height: 1.4;
+margin-bottom: 1rem;
+}
+
+.blog-card .h3:hover {
+text-decoration: underline;
+text-decoration-thickness: 2px;
+}
+
+.blog-text,
+.profile-wrapper { display: none; }
+
+.blog .wrapper {
+display:         flex;
+justify-content: space-between;
+align-items:     center;
+flex-wrap:       wrap;
+gap: 15px;
+}
+
+.blog .h4 { color: var(--foreground-secondary); }
+
+.blog .h4:hover { color: var(--accent); }
+
+.blog .text-sm {
+display:     flex;
+align-items: center;
+gap: 5px;
+color: var(--foreground-tertiary);
+}
+
+.blog .separator {
+background: var(--foreground-tertiary);
+margin-inline: 3px;
+margin: 0 3px; /* fallback for margin-inline */
+width:  3px;
+height: 3px;
+border-radius: 3px;
+}
+
+.blog ion-icon { --ionicon-stroke-width: 50px; }
+
+.load-more {
+margin-inline: auto;
+margin: auto; /* fallback for margin-inline */
+background: var(--foreground-secondary);
+color: var(--background-secondary);
+padding: 0.6875rem 1.1875rem;
+}
+
+.load-more:hover { background: var(--accent); }
+
+
+
+.social-bar {
+  position: fixed;
+  right: 0;
+  top: 35%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.icon {
+  color: white;
+  text-decoration: none;
+  padding: .7rem;
+  display: flex;
+  transition: all .5s;
+}
+
+.icon-facebook {
+  background: #2E406E;
+}
+
+.icon-twitter {
+  background: #339DC5;
+}
+
+.icon-youtube {
+  background: #E83028;
+}
+
+.icon-instagram {
+  background: #3F60A5;
+}
+
+.icon:first-child {
+  border-radius: 1rem 0 0 0;
+}
+
+.icon:last-child {
+  border-radius: 0 0 0 1rem;
+}
+
+.icon:hover {
+  padding-right: 3rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+}
+
+/*-----------------------------------*\ 
+#ASIDE
+\*-----------------------------------*/
+
+.aside { display: none; }
+
+
+
+
+
+/*-----------------------------------*\ 
+#FOOTER
+\*-----------------------------------*/
+
+
+
+
+
+
+/*-----------------------------------*\ 
+#MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+* responsive for larger than 550px screen
+*/
+
+@media (min-width: 550px) {
+
+:root {
+
+  /**
+   * typography 
+   */
+
+  --fs-base: 0.90rem;
+
+}
+
+
+/**
+ * BLOG 
+ */
+
+.blog-card {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 20px;
+}
+
+.blog-card-banner {
+  display: block;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.blog-banner-img {
+  width:  100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+}
+
+
+
+
+
+/**
+* responsive for larger than 650px screen
+*/
+
+@media (min-width: 650px) {
+
+:root {
+
+  /**
+   * typography 
+   */
+
+  --fs-1: 2.25rem;
+
+}
+
+
+
+/**
+ * REUSED STYLE 
+ */
+
+.container { padding: 0 30px; }
+
+
+
+/**
+ * HEADER 
+ */
+
+.navbar { padding: 30px 0; }
+
+
+
+/**
+ * BLOG 
+ */
+
+.blog .h2 {
+  position: relative;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.blog .h2::before {
+  content: '';
+  position: absolute;
+  top:  0;
+  left: 0;
+  background: var(--action-primary);
+  width:  5px;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.blog-text,
+.profile-wrapper { display: block; }
+
+.blog-text {
+  color: var(--foreground-secondary);
+  font-size: var(--fs-4);
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.blog .wrapper-flex {
+  display:         flex;
+  justify-content: start;
+  align-items:     center;
+  gap: 10px;
+}
+
+.profile-wrapper {
+  width:  56px;
+  height: 56px;
+  background: var(--action-primary);
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.profile-wrapper img { border-radius: 50%; }
+
+.blog .wrapper {
+  flex-direction: column;
+  align-items: start;
+  gap: 0;
+}}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+
+/**
+ * REUSED STYLE 
+ */
+
+.container { max-width: 800px; }
+
+}
+
+
+
+
+
+/**
+* responsive for larger than 1024px screen
+*/
+
+@media (min-width: 1024px) {
+
+:root {
+
+  /**
+   * typography 
+   */
+
+  --fs-base: 1rem;
+  --fs-1: 3rem;
+
+}
+
+
+
+/**
+ * REUSED STYLE 
+ */
+
+.container { max-width: 1150px; }
+
+
+
+/**
+ * HEADER 
+ */
+
+header .btn-group { display: none; }
+
+header .flex-wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.desktop-nav {
+  display:     flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.desktop-nav .nav-link {
+  color: var(--foreground-secondary);
+  font-weight: 700;
+}
+
+.desktop-nav .nav-link:hover { color: var(--accent); }
+
+.theme-btn-desktop {
+  position: relative;
+  background: var(--background-secondary);
+  color: var(--white);
+  width:  52px;
+  height: 26px;
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  gap: 10px;
+  border-radius: 100px;
+}
+
+.theme-btn-desktop.light {
+  background: linear-gradient(45deg, hsl(7, 100%, 71%), hsl(46, 100%, 65%));
+}
+
+.theme-btn-desktop.dark {
+  background: linear-gradient(45deg, hsl(225, 100%, 60%), hsl(296, 80%, 40%));
+}
+
+.theme-btn-desktop::before {
+  content: '';
+  position: absolute;
+  background: var(--white);
+  width:  21px;
+  height: 21px;
+  border-radius: 30px;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 10px -2px hsla(0, 0%, 0%, 0.05);
+  z-index: 2;
+}
+
+.theme-btn-desktop.dark::before { left: calc(100% - 24px); }
+
+
+
+/**
+ * HERO 
+ */
+
+.hero { text-align: left; }
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.hero .btn-group {
+  justify-content: start;
+  gap: 30px;
+}
+
+.hero .right {
+  position: relative;
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+}
+
+.hero .pattern-bg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 200px;
+  background: url(../images/pattern.png);
+  background-size: contain;
+  opacity: 0.2;
+}
+
+.hero .img-box {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-img {
+  width:  100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0 0 280px 230px;
+  transform: translate(10px, -10px);
+}
+
+.hero .shape {
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -42%) rotate(-20deg);
+}
+
+.hero .shape-1 {
+  background: var(--accent);
+  width:  90%;
+  height: 90%;
+  z-index: -1;
+}
+
+.hero .shape-2 {
+  width:  92%;
+  height: 92%;
+  box-shadow: inset 0 -30px 0 var(--action-primary);
+  z-index: 2;
+}
+
+
+
+/**
+ * MAIN 
+ */
+
+.main .container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  gap: 60px;
+}
+
+
+
+/**
+ * ASIDE 
+ */
+
+.aside {
+  display: block;
+  align-self: stretch;
+}
+
+.aside .h2 {
+  color: var(--foreground-secondary);
+  margin-bottom: 3rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.aside .wrapper {
+  background: var(--background-primary);
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 5px 5px hsla(0, 0%, 0%, 0.05);
+}
+
+.topics { margin-bottom: 3rem; }
+
+.topic-btn {
+  display:     flex;
+  align-items: stretch;
+  background: var(--background-primary);
+  border-radius: 10px;
+  box-shadow: 0 5px 5px hsla(0, 0%, 0%, 0.05);
+  overflow: hidden;
+}
+
+.topic-btn:not(:last-child) { margin-bottom: 1rem; }
+
+.topic-btn .icon-box {
+  font-size: 22px;
+  width: 70px;
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  background: var(--action-primary);
+  color: var(--foreground-secondary);
+}
+
+.topic-btn:hover .icon-box {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.topic-btn ion-icon { --ionicon-stroke-width: 40px; }
+
+.topic-btn p {
+  padding: 15px;
+  color: var(--foreground-secondary);
+  font-weight: 700;
+}
+
+.tags { margin-bottom: 3rem; }
+
+.tags .wrapper {
+  display:   flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.tags .hashtag {
+  background: var(--action-primary);
+  color: var(--foreground-secondary);
+  padding: 5px 10px;
+  font-size: var(--fs-5);
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.tags .hashtag:hover {
+  background: var(--foreground-secondary);
+  color: var(--action-primary);
+}
+
+.contact { margin-bottom: 3rem; }
+
+.contact p {
+  color: var(--foreground-secondary);
+  margin-bottom: 1rem;
+}
+
+.social-link {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  gap: 10px;
+}
+
+.social-link .icon-box {
+  width:  45px;
+  height: 45px;
+  background: var(--action-secondary);
+  border-radius: 50%;
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  font-size: 22px;
+}
+
+.social-link .discord { color: hsl(235, 86%, 65%); }
+
+.social-link .twitter { color: hsl(203, 89%, 53%); }
+
+.social-link .facebook { color: hsl(220, 46%, 48%); }
+
+.social-link .icon-box:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.newsletter {
+  position: sticky;
+  top: 3rem;
+  margin-bottom: 98px;
+}
+
+.newsletter p {
+  color: var(--foreground-secondary);
+  margin-bottom: 1rem;
+}
+
+.newsletter input {
+  border: none;
+  background: var(--action-primary);
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  color: var(--foreground-secondary);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.newsletter input::placeholder { color: inherit; }
+
+.newsletter input:focus {
+  outline: 2px solid;
+  outline-offset: 0;
+}
+
+.newsletter .btn-primary {
+  margin-inline: auto;
+  margin: auto; /* fallback for margin-inline */
+}
+
+
+
+
+
+
+* {
+	margin:0;
+	padding:0;
+}
+
+
+
+
+
+.navmenu {
+    top:100px;
+    position: absolute;
+    left:0;
+    right:0;
+	margin:20px auto;
+	max-width:1000px;
+	width:90%;
+}
+
+nav ul {
+	list-style:none;
+}
+
+nav > ul {
+	display:table;
+	/*Quitamos el overflow hidden que estaba aqui*/
+	width:100%;
+	background:#000;
+	position:relative;
+}
+
+nav > ul li {
+	display:table-cell;
+}
+
+/*Sub-menu*/
+nav > ul > li:hover > ul {
+	display:block;
+	height:100%;
+}
+
+nav > ul > li > ul {
+	display:block;
+	position:absolute;
+	background:#000;
+	left:0;
+	right:0;
+	overflow:hidden;
+	height:0%;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+nav > ul li a {
+	color:#fff;
+	display:block;
+	line-height:20px;
+	padding:20px;
+	position: relative;
+	text-align:center;
+	text-decoration:none;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+nav > ul > li > ul > li a:hover {
+	background:#5da5a2;
+}
+
+nav > ul > li > a span {
+	background:#174459;
+	display:block;
+	height:100%;
+	width:100%;
+	left:0;
+	position:absolute;
+	top:-55px;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+nav > ul > li > a span .fas{
+	display:block;
+	line-height:60px;
+}
+
+nav > ul > li > a:hover > span {
+	top:0;
+}
+nav > ul > li > a span .far{
+	display:block;
+	line-height:60px;
+}
+
+/*Colores*/
+nav ul li a .primero {
+	background:#0e5061;
+}
+
+nav ul li a .segundo {
+	background:#5da5a2;
+}
+
+nav ul li a .tercero {
+	background:#f25724;
+}
+
+nav ul li a .cuarto {
+	background:#174459;
+}
+
+nav ul li a .quinto {
+	background:#37a4d9;
+}
+    /*Carrusel */
+    .icon-cards {
+  position: relative;
+  left: 100px;
+  width: 500px;
+  height: 500px;
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0;
+  color: white;
+  perspective: 1000px;
+  transform-origin: center;
+}
+.icon-cards__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: translateZ(-30vw) rotateY(0);
+  -webkit-animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+          animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.icon-cards__content.step-animation {
+  -webkit-animation: carousel 8s infinite steps(1) forwards;
+          animation: carousel 8s infinite steps(1) forwards;
+}
+.icon-cards__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 450px;
+  height: 550px;
+  max-width: 500px;
+  max-height: 650px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  transform-origin: center;
+}
+.icon-cards__item:nth-child(1) {
+  background-image:url("img/cot.png");
+  width: 450px;
+  height: 550px;
+  background-repeat: no-repeat;
+  transform: rotateY(0) translateZ(35vw);
+}
+.icon-cards__item:nth-child(2) {
+  background-image: url(img/est.jpg);
+  background-repeat: no-repeat;
+  
+  transform: rotateY(120deg) translateZ(35vw);
+}
+.icon-cards__item:nth-child(3) {
+  background-image: url(img/call.jpg);
+  background-repeat: no-repeat;
+  transform: rotateY(240deg) translateZ(35vw);
+}
+
+
+@-webkit-keyframes carousel {
+  0%, 17.5% {
+    transform: translateZ(-35vw) rotateY(0);
+  }
+  27.5%, 45% {
+    transform: translateZ(-35vw) rotateY(-120deg);
+  }
+  55%, 72.5% {
+    transform: translateZ(-35vw) rotateY(-240deg);
+  }
+  82.5%, 100% {
+    transform: translateZ(-35vw) rotateY(-360deg);
+  }
+}
+
+@keyframes carousel {
+  0%, 17.5% {
+    transform: translateZ(-35vw) rotateY(0);
+  }
+  27.5%, 45% {
+    transform: translateZ(-35vw) rotateY(-120deg);
+  }
+  55%, 72.5% {
+    transform: translateZ(-35vw) rotateY(-240deg);
+  }
+  82.5%, 100% {
+    transform: translateZ(-35vw) rotateY(-360deg);
+  }
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
+
+
+.blog-cartas {
+  width: 350px;
+  height: 500px;
+  position: relative;
+top: 250px;
+  left: 50px;
+  margin: -250px 0 0 -175px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+.blog-cartas.spring-fever {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/bg-blog-card.jpg) no-repeat;
+}
+.blog-cartas .color-overlay {
+  /* Rectangle 11: */
+  background: rgba(84, 104, 110, 0.4);
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+.blog-cartas .gradient-overlay {
+  /* bg-gradient: */
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  top: 350px;
+  left: 0;
+  z-index: 15;
+}
+.blog-cartas:hover .card-info {
+  opacity: 1;
+  bottom: 120px;
+}
+.blog-cartas:hover .color-overlay {
+  background: rgba(84, 104, 110, 0.8);
+}
+.blog-cartas2 {
+  width: 350px;
+  height: 500px;
+  position: relative;
+  left: 450px;
+  margin: -250px 0 0 -175px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+.blog-cartas2.spring-fever {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/bg-blog-card.jpg) no-repeat;
+}
+.blog-cartas2 .color-overlay {
+  /* Rectangle 11: */
+  background: rgba(84, 104, 110, 0.4);
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+.blog-cartas2 .gradient-overlay {
+  /* bg-gradient: */
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  top: 350px;
+  left: 0;
+  z-index: 15;
+}
+.blog-cartas2:hover .card-info {
+  opacity: 1;
+  bottom: 120px;
+}
+.blog-cartas2:hover .color-overlay {
+  background: rgba(84, 104, 110, 0.8);
+}
+.title-content {
+  text-align: center;
+  margin: 70px 0 0 0;
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #9CC9E3;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 0;
+}
+
+hr {
+  width: 50px;
+  height: 3px;
+  margin: 20px auto;
+  border: 0;
+  background: #D0BB57;
+}
+
+.intro {
+  width: 170px;
+  margin: 0 auto;
+  color: #DCE3E7;
+  font-family: "Droid Serif", serif;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 18px;
+}
+
+.card-info {
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  margin: 0 auto;
+  padding: 0 50px;
+  color: #DCE3E7;
+  font-family: "Droid Serif", serif;
+  font-style: 16px;
+  line-height: 24px;
+  z-index: 20;
+  opacity: 0;
+  transition: bottom 0.3s, opacity 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.utility-info {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  z-index: 20;
+}
+
+.utility-list {
+  list-style-type: none;
+  margin: 0 0 30px 20px;
+  padding: 0;
+  width: 100%;
+}
+.utility-list li {
+  margin: 0 15px 0 0;
+  padding: 0 0 0 22px;
+  display: inline-block;
+  color: #DCE3E7;
+  font-family: "Roboto", sans-serif;
+}
+.utility-list li.comments {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-chat.svg) no-repeat 0 0.1em;
+}
+.utility-list li.date {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat 0 0.1em;
+}
+
+.checkbox {
+  position: relative;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #F47956;
+  transition: color 0.3s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.checkbox:hover {
+  color: #F7A95A;
+}
+.checkbox__checkbox {
+  position: relative;
+  top: 0;
+  width: 1.0625rem;
+  height: 1.0625rem;
+  background: white;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  vertical-align: middle;
+  transition: background 0.1s ease;
+  cursor: pointer;
+}
+.checkbox__checkbox::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 5px;
+  height: 11px;
+  opacity: 0;
+  transform: rotate(45deg) scale(0);
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transition: all 0.3s ease;
+  transition-delay: 0.15s;
+}
+.checkbox__label {
+  margin-left: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.checkbox > input:checked ~ .checkbox__checkbox {
+  border-color: transparent;
+  background: #F47956;
+  -webkit-animation: jelly 0.6s ease;
+          animation: jelly 0.6s ease;
+}
+.checkbox > input:checked ~ .checkbox__checkbox:after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
+@-webkit-keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}}
+
+footer { background: var(--background-primary); }
+
+footer .container {
+  padding: var(--py) 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+footer .wrapper { text-align: center; }
+
+.footer-logo { margin-bottom: 10px; }
+
+.footer-text {
+  color: var(--foreground-secondary);
+  max-width: 300px;
+  margin-inline: auto;
+  margin: auto; /* fallback for margin-inline */
+}
+
+.footer-title {
+  color: var(--foreground-primary);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.footer-link { color: var(--foreground-secondary); }
+
+.footer-link:hover { color: var(--accent); }
+
+.copyright {
+  color: var(--foreground-secondary);
+  font-size: var(--fs-4);
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid var(--action-primary);
+}
+
+.copyright a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.copyright a:hover { text-decoration: underline; }
+
+footer .container {
+    padding: var(--py) 30px;
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  footer .wrapper { text-align: left; }
+
+  .footer-text { margin: 0; }
+
+
+
+
+.footer-title { font-size: 1.125rem; }
+
+.footer-link { margin-bottom: 0.3rem; }
+
+
+    </style>
+
+
+ 
+</head>
+<div class="social-bar">
+  <link rel="stylesheet" href="font.css">
+  <a href="https://www.facebook.com" class="icon icon-facebook" target="_blank"></a>
+  <a href="https://twitter.com" class="icon icon-twitter" target="_blank"></a>
+  <a href="https://www.youtube.com" class="icon icon-youtube" target="_blank"></a>
+  <a href="https://www.instagram.com" class="icon icon-instagram" target="_blank"></a>
+</div>
+
+<body class="light-theme" id="body">
+
+  <!--
+    - #HEADER
+  -->
+
+  <header>
+    <div class="icon__menu">
+        <i class="fas fa-bars" id="btn_open"></i>
+    </div>
+
+    <div class="container">
+
+      <nav class="navbar">
+
+    
+        <div class="btn-group">
+
+          <button class="theme-btn theme-btn-mobile light">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+          </button>
+
+          <button class="nav-menu-btn">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="flex-wrapper">
+
+          
+          </ul>
+
+          <button class="theme-btn theme-btn-desktop light">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="mobile-nav">
+
+          <button class="nav-close-btn">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+         
+
+        </div>
+        <div class="contenido">
+          <div class="search">
+        <input type="text" placeholder="search" />
+        <div class="symbol">
+          <svg class="cloud">
+            <use xlink:href="#cloud" />
+          </svg>
+          <svg class="lens">
+            <use xlink:href="#lens" />
+          </svg>
+        </div>
+      </div>
+        
+      <!-- SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="cloud">
+          <path d="M31.714,25.543c3.335-2.17,4.27-6.612,2.084-9.922c-1.247-1.884-3.31-3.077-5.575-3.223h-0.021
+        C27.148,6.68,21.624,2.89,15.862,3.931c-3.308,0.597-6.134,2.715-7.618,5.708c-4.763,0.2-8.46,4.194-8.257,8.919
+        c0.202,4.726,4.227,8.392,8.991,8.192h4.873h13.934C27.784,26.751,30.252,26.54,31.714,25.543z" />
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="lens">
+          <path d="M15.656,13.692l-3.257-3.229c2.087-3.079,1.261-7.252-1.845-9.321c-3.106-2.068-7.315-1.25-9.402,1.83
+        s-1.261,7.252,1.845,9.32c1.123,0.748,2.446,1.146,3.799,1.142c1.273-0.016,2.515-0.39,3.583-1.076l3.257,3.229
+        c0.531,0.541,1.404,0.553,1.95,0.025c0.009-0.008,0.018-0.017,0.026-0.025C16.112,15.059,16.131,14.242,15.656,13.692z M2.845,6.631
+        c0.023-2.188,1.832-3.942,4.039-3.918c2.206,0.024,3.976,1.816,3.951,4.004c-0.023,2.171-1.805,3.918-3.995,3.918
+        C4.622,10.623,2.833,8.831,2.845,6.631L2.845,6.631z" />
+        </symbol>
+      </svg>  
+      </div>
+
+      </nav>
+
+    </div>
+
+  </header>
+  <div class="menu__side" id="menu_side">
+
+    <div class="name__page">
+        <i class="fab fa-youtube"></i>
+        <h4>Agile programmer</h4>
+    </div>
+
+    <div class="options__menu">	
+
+        <a href="#" class="selected">
+            <div class="option">
+                <i class="fas fa-home" title="Inicio"></i>
+                <h4>Inicio</h4>
+            </div>
+        </a>
+
+        <a href="">
+            <div class="option">
+                <i class="far fa-file" title="Portafolio"></i>
+                <h4>Mi Perfil</h4>
+            </div>
+        </a>
+        
+        <a href="">
+            <div class="option">
+                <i class="fas fa-video" title="Cursos"></i>
+                <h4>Solicitudes</h4>
+            </div>
+        </a>
+
+        <a href="MisVehiculos.html">
+            <div class="option">
+                <i class="far fa-sticky-note" title="Blog"></i>
+                <h4>Mis Vehiculos</h4>
+            </div>
+        </a>
+
+        <a href="Contacto.html">
+            <div class="option">
+                <i class="far fa-id-badge" title="Contacto"></i>
+                <h4>Contacto</h4>
+            </div>
+        </a>
+
+        <a href="">
+            <div class="option">
+                <i class="far fa-address-card" title="Nosotros"></i>
+                <h4>Notificaciones</h4>
+            </div>
+        </a>
+
+        <a href="">
+          <div class="option">
+            <i class="fa-solid fa-gears" title="Administrador"></i>
+              <h4>Administrador</h4>
+          </div>
+      </a>
+
+    </div>
+  
+
+</div>
+
+
+
+
+  <main>
+
+    <!--
+      - #HERO SECTION
+    -->
+
+    </nav>
+    
+
+    <div class="hero">
+
+      <div class="container">
+
+        <div class="left">
+
+          <h1 style="font-family: Snap ITC ;" class="h1">
+            Park<b>&nbsp;Vision</b>
+            <br>ParkingLot
+          </h1>
+
+          <p class="h3">
+            Control De Estacionamiento<abbr title="Accessibility"> Escolar</abbr>
+            Digital 
+          </p>
+
+          <div class="btn-group">
+            <a href="#" class="btn btn-primary">Contact Me</a>
+            <a href="#" class="btn btn-secondary">About Me</a>
+          </div>
+
+        </div>
+
+        <div class="right">
+
+          <div class="pattern-bg"></div>
+          <div class="img-box">
+            <img src="img/AVATAR.PNG" alt="" class="hero-img">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <br><br>
+
+    <nav id="navmenu">
+        <ul>
+            <li><a href="Sit.html"><span class="primero"><i class="fas fa-home"></i></span>Inicio</a></li>
+            <li><a href="Pago.html"><span class="segundo"><i class="far fa-file"></i></span>Mi Perfil</a></li>
+            <li><a href="Galery.html"><span class="tercero"><i class="fas fa-video"></i></span>Solicitudes</a></li>
+            <li><a href="REgistro.html"><span class="cuarto"><i class="far fa-id-badge"></i></span>Mis Vehículos</a></li>
+            <li><a href="Contacto.html"><span class="quinto"><i class="far fa-address-card"></i></span>Contacto</a></li>
+        </ul>
+    </nav>
+
+
+<section>
+
+    <div class="main">
+
+      <div class="container">
+
+        <!--
+          - BLOG SECTION
+        -->
+
+        <div class="blog">
+
+          <h2 class="h2">Sobre Nosotros</h2>
+          <figure class="icon-cards mt-3">
+            <div class="icon-cards__content">
+              <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1"></span></div>
+              <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1"></span></div>
+              <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1"></span></div>
+              <div class="icon-cards__item d-flex align-items-center justify-content-center"><span class="h1"></span></div>
+            
+            </div>
+          </figure>
+          <br>
+          <div class="checkbox">
+            <input class="d-none" id="toggle-animation" type="checkbox" checked />
+            <label class="checkbox__checkbox" for="toggle-animation"></label>
+            <label class="checkbox__label" for="toggle-animation">Toggle animation</label>
+          </div>
+       <br>
+       <br>
+       <div class="blog-cartas spring-fever">
+        <div class="title-content">
+          <h3>Solicitar Espacio</h3>
+          <hr />
+          <div class="intro">Disfrute de una experiencia sin complicaciones con nuestra opción "Solicitar Lugar".</div>
+        </div><!-- /.title-content -->
+        <div class="card-info">
+          Asegure su espacio de estacionamiento con antelación.Reserve fácilmente a través de nuestra plataforma y garantice un lugar disponible para su vehículo cuando lo necesite.
+        </div><!-- /.card-info -->
+        <div class="utility-info">
+          <ul class="utility-list">
+            <li class="comments">12</li>
+            <li class="date">03.12.2015</li>
+          </ul>
+        </div><!-- /.utility-info -->
+        <!-- overlays -->
+        <div class="gradient-overlay"></div>
+        <div class="color-overlay"></div>
+      </div><!-- /.blog-card -->
+
+      <div class="blog-cartas2 spring-fever">
+        <div class="title-content">
+          <h3>MIS VEHICULOS</h3>
+          <hr />
+          <div class="intro">Administre y mantenga actualizada la información de sus vehículos</div>
+        </div><!-- /.title-content -->
+        <div class="card-info">
+          Centralice los datos de todos sus vehículos en un solo lugar para una gestión más sencilla y rápida.
+        </div><!-- /.card-info -->
+        <div class="utility-info">
+          <ul class="utility-list">
+            <li class="comments">12</li>
+            <li class="date">03.12.2015</li>
+          </ul>
+        </div><!-- /.utility-info -->
+        <!-- overlays -->
+        <div class="gradient-overlay"></div>
+        <div class="color-overlay"></div>
+      </div><!-- /.blog-card -->
+
+    <br>
+    <br>
+    <br>
+   
+
+
+          <div class="blog-card-group">
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="img/carr.jpg" alt="Building microservices with Dropwizard, MongoDB & Docker"
+                  width="250" class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Database</button>
+
+                <h3>
+                  <a href="#" class="h3">
+                    Automóviles
+                  </a>
+                </h3>
+
+                <p class="blog-text">
+                  Nuestro sistema de control de estacionamiento está diseñado para ofrecer una experiencia de estacionamiento sin complicaciones y eficiente para los conductores de automóviles. Con tecnología avanzada y características de seguridad mejoradas, garantizamos comodidad y tranquilidad en cada uso.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="img/autor.jpg" alt="CFGA" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">César Avalos</a>
+
+                    <p class="text-sm">
+                      <time datetime="2022-01-17">Jan 13, 2024</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT3M">3 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="img/mot.jpg" alt="Fast web page loading on a $20 feature phone" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Archivo Web</button>
+
+                <h3><a href="" class="h3">Motocicletas</a></h3>
+
+                <p class="blog-text">
+                  Nuestro sistema de control de estacionamiento también está optimizado para motocicletas, ofreciendo una solución segura y conveniente para los motociclistas. Con áreas dedicadas y tecnología avanzada, aseguramos que encontrar un lugar para su motocicleta sea rápido y sencillo.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="img/autor.jpg" alt="Cesar" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">César Avalos</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-12-10">Dec 10, 2024</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT2M">2 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="img/bic.jpeg" alt="Accessibility Tips for Web Developers" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Accesibilidad</button>
+
+                <h3><a href="" class="h3">Bicicletas</a></h3>
+
+                <p class="blog-text">
+                  Nuestro sistema de control de estacionamiento también está diseñado pensando en los ciclistas, ofreciendo soluciones seguras y accesibles para el estacionamiento de bicicletas. Con instalaciones especializadas y medidas de seguridad avanzadas, aseguramos que su bicicleta esté bien cuidada mientras usted se ocupa de sus actividades.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="img/autor.jpg" alt="CFGA" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">César Avalos</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-11-28">Nov 28, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT4M">4 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="img/pe.jpg" alt="Dynamically Securing Databases using Hashicorp Vault"
+                  width="250" class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Database</button>
+
+                <h3><a href="" class="h3">Solicitar Lugar</a></h3>
+
+                <p class="blog-text">
+                  Asegure su espacio de estacionamiento con antelación y disfrute de una experiencia sin complicaciones con nuestra opción "Solicitar Lugar". Reserve fácilmente a través de nuestra plataforma y garantice un lugar disponible para su vehículo cuando lo necesite.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="img/autor.jpg" alt="CFGA" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">César Avalos</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-11-20">Nov 20, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT4M">4 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="blog-card">
+
+              <div class="blog-card-banner">
+                <img src="img/mox.jpeg"
+                  alt="Adaptive Loading - Improving Web Performance on low-end devices" width="250"
+                  class="blog-banner-img">
+              </div>
+
+              <div class="blog-content-wrapper">
+
+                <button class="blog-topic text-tiny">Web </button>
+
+                <h3><a href="" class="h3">Mis Vehiculos</a></h3>
+
+                <p class="blog-text">
+                  Administre y mantenga actualizada la información de sus vehículos fácilmente con nuestra opción "Mis Vehículos". Centralice los datos de todos sus vehículos en un solo lugar para una gestión más sencilla y rápida.
+                </p>
+
+                <div class="wrapper-flex">
+
+                  <div class="profile-wrapper">
+                    <img src="img/autor.jpg" alt="CFGA" width="50">
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">César Avalos</a>
+
+                    <p class="text-sm">
+                      <time datetime="2021-11-10">Nov 10, 2021</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT3M">3 min</time>
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          
+              </div>
+    
+    
+
+
+          <button class="btn load-more">Load More</button>
+
+        </div>
+
+
+
+
+
+        <!--
+          - ASIDE
+        -->
+
+        <div class="aside">
+
+          <div class="topics">
+
+            <h2 class="h2">Topics</h2>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="server-outline"></ion-icon>
+              </div>
+
+              <p>Base De Datos</p>
+            </a>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="accessibility-outline"></ion-icon>
+              </div>
+
+              <p>Accessibilidad</p>
+            </a>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="rocket-outline"></ion-icon>
+              </div>
+
+              <p>Plataformas Web</p>
+            </a>
+
+          </div>
+
+          <div class="tags">
+
+            <h2 class="h2">Tags</h2>
+
+            <div class="wrapper">
+
+              <button class="hashtag">#UTNG</button>
+              <button class="hashtag">#ParkVision</button>
+              <button class="hashtag">#ParkingLot</button>
+              <button class="hashtag">#Servicios</button>
+              <button class="hashtag">#Nuevo</button>
+              <button class="hashtag">#Contacto</button>
+              <button class="hashtag">#Optimizacion</button>
+              <button class="hashtag">#Administracion</button>
+
+            </div>
+
+          </div>
+
+          <div class="contact">
+
+            <h2 class="h2">Contacto</h2>
+
+            <div class="wrapper">
+
+              <p>
+                Si necesitas ayuda puedes consultarme a través de...
+              </p>
+
+              <ul class="social-link">
+
+                <li>
+                  <a href="#" class="icon-box discord">
+                    <ion-icon name="logo-discord"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="icon-box twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="icon-box facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="newsletter">
+
+            <h2 class="h2">Registrate</h2>
+
+            <div class="wrapper">
+
+              <p>
+                Suscribete para poder notificarte acerca de nuevos cambios, blogs, etc
+              </p>
+
+              <form action="#">
+                <input type="email" name="email" placeholder="Email Address" required>
+
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  
+
+
+</main>
+
+<footer>
+
+    <div class="container">
+
+      <div class="wrapper">
+
+        <a href="#" class="footer-logo">
+          <img src="img/Logo02.png" alt="DevBlog's Logo" width="150" height="150" class="logo-light">
+          <img src="img/Logo02.png" alt="DevBlog's Logo" width="150" height="150" class="logo-dark">
+        </a>
+
+        <p class="footer-text">
+          Página Creada Originalmenet por Agile Programmer
+        </p>
+
+      </div>
+
+      <div class="wrapper">
+
+        <p class="footer-title">ParkVision</p>
+
+        <ul>
+
+          <li>
+            <a href="#" class="footer-link">Advertencias</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Acerca de Nosotros</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contacto</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="wrapper">
+
+        <p class="footer-title">Legal</p>
+
+        <ul>
+
+          <li>
+            <a href="#" class="footer-link">Privacidad</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Cookie Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terminos</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      &copy; Copyright 2022 <a href="#">Agile Programmer</a>
+    </p>
+
+  </footer>
+
+
+
+  <!--
+    - ionicon link
+  -->
+  <script>
+    //Ejecutar función en el evento click
+document.getElementById("btn_open").addEventListener("click", open_close_menu);
+
+//Declaramos variables
+var side_menu = document.getElementById("menu_side");
+var btn_open = document.getElementById("btn_open");
+var body = document.getElementById("body");
+
+//Evento para mostrar y ocultar menú
+    function open_close_menu(){
+        body.classList.toggle("body_move");
+        side_menu.classList.toggle("menu__side_move");
+    }
+
+//Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
+
+if (window.innerWidth < 760){
+
+    body.classList.add("body_move");
+    side_menu.classList.add("menu__side_move");
+}
+
+//Haciendo el menú responsive(adaptable)
+
+window.addEventListener("resize", function(){
+
+    if (window.innerWidth > 760){
+
+        body.classList.remove("body_move");
+        side_menu.classList.remove("menu__side_move");
+    }
+
+    if (window.innerWidth < 760){
+
+        body.classList.add("body_move");
+        side_menu.classList.add("menu__side_move");
+    }
+
+});
+
+
+'use strict';
+
+// navbar variables
+const nav = document.querySelector('.mobile-nav');
+const navMenuBtn = document.querySelector('.nav-menu-btn');
+const navCloseBtn = document.querySelector('.nav-close-btn');
+
+
+// navToggle function
+const navToggleFunc = function () { nav.classList.toggle('active'); }
+
+navMenuBtn.addEventListener('click', navToggleFunc);
+navCloseBtn.addEventListener('click', navToggleFunc);
+
+
+
+// theme toggle variables
+const themeBtn = document.querySelectorAll('.theme-btn');
+
+
+for (let i = 0; i < themeBtn.length; i++) {
+
+  themeBtn[i].addEventListener('click', function () {
+
+    // toggle `light-theme` & `dark-theme` class from `body`
+    // when clicked `theme-btn`
+    document.body.classList.toggle('light-theme');
+    document.body.classList.toggle('dark-theme');
+
+    for (let i = 0; i < themeBtn.length; i++) {
+
+      // When the `theme-btn` is clicked,
+      // it toggles classes between `light` & `dark` for all `theme-btn`.
+      themeBtn[i].classList.toggle('light');
+      themeBtn[i].classList.toggle('dark');
+
+    }
+
+  })
+
+}
+function classToggle() {
+  var el = document.querySelector('.icon-cards__content');
+  el.classList.toggle('step-animation');
+}
+
+document.querySelector('#toggle-animation').addEventListener('click', classToggle);
+  </script>
+    <script src="./assets/js/script.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
