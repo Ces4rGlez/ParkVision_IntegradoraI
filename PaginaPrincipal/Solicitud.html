@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Espacio</title>
+    <!--González Avalos César Fernando-->
+    <style>
+        
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* Sección de solicitar espacio */
+.solicitar-espacio {
+    margin-bottom: 40px;
+}
+
+.image-upload {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.image-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 2px dashed #999;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.image-placeholder:hover {
+    border-color: #ff9900;
+}
+
+.image-placeholder label {
+    color: #333;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+#upload {
+    display: none;
+}
+
+/* Formulario de solicitud */
+.form-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff9900;
+}
+
+button[type="submit"] {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff6600;
+}
+
+.terms {
+    font-size: 1.1rem;
+    margin-top: 18px;
+}
+
+.terms input {
+    margin-right: 8px;
+}
+
+/* Sección de opiniones */
+.opiniones {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.opinion-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.opinion-card:hover {
+    transform: translateY(-5px);
+}
+
+.opinion-content {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.author {
+    font-style: italic;
+    color: #777;
+}
+
+.author span {
+    font-style: normal;
+    color: #333;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="solicitar-espacio">
+            <div class="section-header">
+                <h1>Solicitar Espacio</h1>
+            </div>
+            <div class="image-upload">
+                <div class="image-placeholder">
+                    <label for="upload">Subir Imagen</label>
+                    <input type="file" id="upload" name="upload" accept="image/*">
+                </div>
+            </div>
+        </section>
+
+        <section class="form-container">
+            <div class="section-header">
+                <h2>Formulario de Solicitud</h2>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora-llegada">Hora de Llegada</label>
+                    <input type="time" id="hora-llegada" name="hora-llegada" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo-vehiculo">Tipo de Vehículo</label>
+                    <select id="tipo-vehiculo" name="tipo-vehiculo" required>
+                        <option value="auto">Auto</option>
+                        <option value="moto">Moto</option>
+                        <option value="camion">Camión</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numero-placa">Número de Placa</label>
+                    <input type="text" id="numero-placa" name="numero-placa" required>
+                </div>
+                <div class="form-group">
+                    <label for="observaciones">Observaciones</label>
+                    <textarea id="observaciones" name="observaciones"></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+                <p class="terms">
+                    <input type="checkbox" id="terms-checkbox" required>
+                    <label for="terms-checkbox">He aceptado los términos y condiciones</label>
+                </p>
+            </form>
+        </section>
+
+        <section class="opiniones">
+            <div class="section-header">
+                <h2>Opiniones</h2>
+            </div>
+            <div class="opinion-card">
+                <div class="opinion-content">
+                    <p>“Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.”</p>
+                    <p class="author">Author Name <span>Former VP of Company</span></p>
+                </div>
+            </div>
+            <div class="opinion-card">
+                <div class="opinion-content">
+                    <p>“Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.”</p>
+                    <p class="author">Author Name <span>Former VP of Company</span></p>
+                </div>
+            </div>
+            <div class="opinion-card">
+                <div class="opinion-content">
+                    <p>“Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.”</p>
+                    <p class="author">Author Name <span>Former VP of Company</span></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
+  <!--Gilberto Fabián Correa González-->
   <!-- La siguiente interfaz va dirigida hacia el administrador. Solo en este apartado va a poder ver la 
    lista de usuarios y leer sus datos generales -->
   <meta charset="UTF-8">
-  <title>CodePen - Parallax Depth Cards</title>
+  <title>Registro de Usuarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'><link rel="stylesheet" href="./style.css">
 <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.3.5/typescript.min.js"></script>
 <style>
   *{
 
@@ -400,74 +402,69 @@ C4.622,10.623,2.833,8.831,2.845,6.631L2.845,6.631z" />
 
  </div>
  <main>
-  <script>
-    
-  <!--
-    //ionicon link
-  -->
+  <script type="text/typescript">
+    // Ejecutar función en el evento click
+    document.getElementById("btn_open")?.addEventListener("click", openCloseMenu);
 
-    //Ejecutar función en el evento click
-document.getElementById("btn_open").addEventListener("click", open_close_menu);
+    // Declaramos variables
+    const sideMenu = document.getElementById("menu_side") as HTMLElement;
+    const btnOpen = document.getElementById("btn_open") as HTMLElement;
+    const body = document.getElementById("body") as HTMLElement;
 
-//Declaramos variables
-var side_menu = document.getElementById("menu_side");
-var btn_open = document.getElementById("btn_open");
-var body = document.getElementById("body");
-
-//Evento para mostrar y ocultar menú
-    function open_close_menu(){
+    // Evento para mostrar y ocultar menú
+    function openCloseMenu() {
         body.classList.toggle("body_move");
-        side_menu.classList.toggle("menu__side_move");
+        sideMenu.classList.toggle("menu__side_move");
     }
 
-//Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
-
-if (window.innerWidth < 760){
-
-    body.classList.add("body_move");
-    side_menu.classList.add("menu__side_move");
-}
-
-//Haciendo el menú responsive(adaptable)
-
-window.addEventListener("resize", function(){
-
-    if (window.innerWidth > 760){
-
-        body.classList.remove("body_move");
-        side_menu.classList.remove("menu__side_move");
-    }
-
-    if (window.innerWidth < 760){
-
+    // Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
+    if (window.innerWidth < 760) {
         body.classList.add("body_move");
-        side_menu.classList.add("menu__side_move");
+        sideMenu.classList.add("menu__side_move");
     }
 
-});
+    // Haciendo el menú responsive (adaptable)
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 760) {
+            body.classList.remove("body_move");
+            sideMenu.classList.remove("menu__side_move");
+        }
 
+        if (window.innerWidth < 760) {
+            body.classList.add("body_move");
+            sideMenu.classList.add("menu__side_move");
+        }
+    });
 
-'use strict';
+    // Navbar variables
+    const nav = document.querySelector('.mobile-nav') as HTMLElement;
+    const navMenuBtn = document.querySelector('.nav-menu-btn') as HTMLElement;
+    const navCloseBtn = document.querySelector('.nav-close-btn') as HTMLElement;
 
-// navbar variables
-const nav = document.querySelector('.mobile-nav');
-const navMenuBtn = document.querySelector('.nav-menu-btn');
-const navCloseBtn = document.querySelector('.nav-close-btn');
+    // navToggle function
+    const navToggleFunc = function () { nav.classList.toggle('active'); }
 
+    navMenuBtn.addEventListener('click', navToggleFunc);
+    navCloseBtn.addEventListener('click', navToggleFunc);
 
-// navToggle function
-const navToggleFunc = function () { nav.classList.toggle('active'); }
+    // Theme toggle variables
+    const themeBtns = document.querySelectorAll('.theme-btn') as NodeListOf<HTMLElement>;
+</script>
 
-navMenuBtn.addEventListener('click', navToggleFunc);
-navCloseBtn.addEventListener('click', navToggleFunc);
-
-
-
-// theme toggle variables
-const themeBtn = document.querySelectorAll('.theme-btn');
-
-
-  </script>
+<script>
+    // Transpilar y ejecutar TypeScript
+    (async () => {
+        const tsScript = document.querySelector('script[type="text/typescript"]');
+        if (tsScript) {
+            const tsCode = tsScript.textContent;
+            const jsCode = ts.transpile(tsCode);
+            const script = document.createElement('script');
+            script.type = 'module';
+            script.text = jsCode;
+            document.body.appendChild(script);
+        }
+    })();
+</script>
 <!-- partial:index.partial.html -->
 <h1 class="title">Listado de Usuarios</h1>
 
